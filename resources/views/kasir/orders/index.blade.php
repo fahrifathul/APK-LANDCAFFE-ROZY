@@ -7,9 +7,6 @@
 <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3 gap-3">
   <div class="d-flex align-items-center gap-3">
     <h1 class="h3 mb-0">Pesanan</h1>
-    <a href="{{ route('kasir.orders.pos') }}" class="btn btn-primary btn-sm d-flex align-items-center gap-1">
-      <i class="fas fa-cash-register"></i> Kasir Baru
-    </a>
   </div>
   <div class="d-flex flex-wrap gap-2">
     <a href="{{ route('kasir.orders.index') }}" class="btn btn-sm btn-outline-secondary">Semua</a>

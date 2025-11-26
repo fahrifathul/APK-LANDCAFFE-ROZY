@@ -4,8 +4,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@yield('title', 'LandCaffe')</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Script-like logo font + elegant serif for headings/lead -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     /* Modern Navigation Styles */
     .navbar {
@@ -35,6 +39,7 @@
     }
     
     .nav-link {
+      font-family: 'Poppins', sans-serif;
       font-weight: 500;
       color: #2d1810 !important;
       position: relative;
@@ -46,6 +51,7 @@
       box-shadow: none !important;
       letter-spacing: 0.3px;
       white-space: nowrap;
+      font-size: 0.95rem;
     }
     
     /* Remove default focus styles */
@@ -296,7 +302,27 @@
     .footer a{ color:#e2e8f0; text-decoration:none; }
     .footer p{ color:#ffffff; }
     .logo-script{ font-family: 'Great Vibes', cursive; letter-spacing: .5px; font-size: 1.6rem; }
-    .btn-login{ font-family: inherit; letter-spacing:.3px; font-weight:600; border-radius:999px; transition: all .2s ease; box-shadow:0 8px 18px rgba(139,94,60,.25); }
+    .btn-login{ 
+      font-family: inherit; 
+      letter-spacing:.3px; 
+      font-weight:600; 
+      border-radius:999px; 
+      transition: all .2s ease; 
+      box-shadow:0 8px 18px rgba(139,94,60,.25); 
+      background: linear-gradient(135deg, #4CAF50, #2E7D32);
+      border: none;
+      color: white;
+    }
+    .btn-login:hover {
+      background: linear-gradient(135deg, #43A047, #1B5E20);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    }
+    .btn-login:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(76, 175, 80, 0.3);
+    }
     /* Elegant typography helpers */
     .elegant-title{ font-family: 'Playfair Display', serif; letter-spacing:.3px; }
     .elegant-lead{ font-family: 'Playfair Display', serif; font-weight:500; font-size:1.08rem; line-height:1.8; max-width:62ch; }
@@ -565,21 +591,33 @@
     .hero-content-wrapper {
       position: relative;
       z-index: 2;
-      padding: 0;
+      padding: 2rem 0;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(255,255,255,0.15);
+      gap: 0.6rem;
+      background: rgba(255,255,255,0.18);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 0.5rem 1rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 0.6rem 1.2rem;
       border-radius: 50px;
       color: #fff;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .hero-badge:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-1px);
     }
     
     .hero-badge-icon {
@@ -587,12 +625,17 @@
     }
     
     .hero-welcome-title-modern {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
       color: #fff;
-      line-height: 1.2;
+      line-height: 1.15;
       margin-bottom: 1.5rem;
       font-family: 'Playfair Display', serif;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     .hero-highlight {
@@ -604,10 +647,14 @@
     }
     
     .hero-subtitle-modern {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: rgba(255,255,255,0.9);
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+      color: rgba(255,255,255,0.92);
       line-height: 1.7;
-      max-width: 600px;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+      letter-spacing: 0.2px;
     }
     
     .hero-actions {
@@ -1746,11 +1793,14 @@
         <!-- Right Side Actions -->
         <ul class="navbar-nav align-items-lg-center gap-3">
         @guest
-          <li class="nav-item">
-            <a class="btn btn-warning px-4 fw-semibold d-flex align-items-center" href="{{ route('login') }}">
-              <i class="fas fa-sign-in-alt me-2"></i> Login
-            </a>
-          </li>
+          @if(request()->routeIs('home'))
+            <li class="nav-item d-none d-lg-block">
+              <a class="btn btn-login px-3 px-lg-4 py-2 fw-semibold d-flex align-items-center" href="{{ route('login') }}" style="white-space: nowrap;">
+                <i class="fas fa-sign-in-alt me-1 me-lg-2"></i>
+                <span class="d-none d-sm-inline">Login</span>
+              </a>
+            </li>
+          @endif
         @else
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" data-bs-toggle="dropdown" aria-expanded="false">

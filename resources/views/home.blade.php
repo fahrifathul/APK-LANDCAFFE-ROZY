@@ -5,9 +5,9 @@
   <section class="hero-welcome-modern">
     <div class="hero-particles"></div>
     <div class="hero-welcome-overlay-modern"></div>
-    <div class="container h-100">
-      <div class="row align-items-center h-100">
-        <div class="col-12">
+    <div class="container-fluid px-0 h-100">
+      <div class="row g-0 align-items-center h-100">
+        <div class="col-12 px-4 px-md-5">
           <div class="hero-content-wrapper mx-auto">
             <div class="hero-badge mb-3 mb-md-4">
               <i class="fas fa-coffee hero-badge-icon"></i>
@@ -59,7 +59,12 @@
       position: relative;
       min-height: 100vh;
       padding: 100px 0;
-      margin-top: -76px; /* Offset for fixed navbar */
+      margin: -76px -15px 0 -15px; /* Offset for fixed navbar and remove side margins */
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw !important;
+      margin-right: -50vw !important;
       z-index: 1;
       background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
                   url('/images/hero/backgroundwelcome.jpeg') no-repeat center center;
@@ -379,6 +384,16 @@
     }
     
     /* Hero Image */
+    .hero-content-wrapper {
+      position: relative;
+      z-index: 2;
+      padding: 2rem 0;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
     .hero-image-wrapper {
       position: relative;
       z-index: 2;
